@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <SpaRoot>..\vueandaspnetcorespaopenid.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
-    <SpaProxyServerUrl>https://localhost:62112</SpaProxyServerUrl>
+    <SpaProxyServerUrl>https://localhost:8070</SpaProxyServerUrl>
   </PropertyGroup>
 
   <ItemGroup>
