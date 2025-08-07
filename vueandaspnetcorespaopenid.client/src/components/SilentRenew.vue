@@ -4,7 +4,7 @@
 
 <script setup>
   import { onMounted } from 'vue';
-  import { userManager } from '@/services/authService';
+  import { userManager } from '@/auth/oidcService';
 
   onMounted(() => {
     userManager.signinSilentCallback()
