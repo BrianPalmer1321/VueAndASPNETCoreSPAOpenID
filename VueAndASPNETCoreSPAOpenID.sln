@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "vueandaspnetcorespaopenid.client", "vueandaspnetcorespaopenid.client\vueandaspnetcorespaopenid.client.esproj", "{9E13D1B3-1C99-7B01-51E0-353C03190F82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VueAndASPNETCoreSPAOpenID.Server", "VueAndASPNETCoreSPAOpenID.Server\VueAndASPNETCoreSPAOpenID.Server.csproj", "{7DF07CE6-6486-40EC-B48F-BC68E93776AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E13D1B3-1C99-7B01-51E0-353C03190F82}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7DF07CE6-6486-40EC-B48F-BC68E93776AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF07CE6-6486-40EC-B48F-BC68E93776AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF07CE6-6486-40EC-B48F-BC68E93776AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF07CE6-6486-40EC-B48F-BC68E93776AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DBDD8D3-CA90-4048-BC04-3C02A237C4EE}
+	EndGlobalSection
+EndGlobal

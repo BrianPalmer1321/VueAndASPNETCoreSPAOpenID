@@ -1,0 +1,6 @@
+@VueAndASPNETCoreSPAOpenID.Server_HostAddress = http://localhost:5041
+
+GET {{VueAndASPNETCoreSPAOpenID.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
