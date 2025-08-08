@@ -32,7 +32,7 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/oidccallback',
+    path: '/OidcCallback',
     name: 'OidcCallback',
     component: OidcCallback,
     //beforeEnter: (to, from, next) => {
@@ -50,7 +50,7 @@ const routes = [
         next({ path: '/home' }); // Redirect to home if already authenticated
       } else {
         // Store the intended route path
-        //localStorage.setItem('intendedRoute', to.fullPath);
+        localStorage.setItem('intendedRoute', to.fullPath);
         console.info('intendedRoute:', to.fullPath);
         authStore.login().then(() => {
           next(); // Proceed to login route

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue'
 import { userManager } from '../auth/oidcConfig.js';
+import { handleCallback, getUser } from '../auth/oidcService';
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -29,20 +30,21 @@ export const useAuthStore = defineStore('auth', {
     async handleCallback() {
       console.log('In handleCallback');
       try {
-        const user = await userManager.signinRedirectCallback();
-        console.log('Callback handling returned:');
-
+        await handleCallback();
+        const user = await getUser();
         this.user = user;
-        this.isAuthenticated = true;
+        this.isAuthenticated = !!user && !user.expired;
       } catch (error) {
         console.error('Callback handling failed:', error);
+        this.user = null;
+        this.isAuthenticated = false;
       }
     },
     async logout() {
       try {
         await userManager.signoutRedirect();
-        this.user = null;
-        this.isAuthenticated = false;
+        this.state.user = null;
+        this.state.isAuthenticated = false;
         console.log('Logout succeeded:');
 
       } catch (error) {
