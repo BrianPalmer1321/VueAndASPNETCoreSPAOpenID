@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '@/stores/authstore';
 import '@/auth/oidcService'; // Import the userManager instance from oidcService
 import TheWelcome from '@/components/TheWelcome.vue';
-import HelloWorld from '@/components/HelloWorld.vue'
+import WeatherForcast from '@/components/WeatherForecast.vue'
 import OidcCallback from '@/components/OidcCallback.vue';
 
 const routes = [
@@ -21,9 +21,9 @@ const routes = [
     component: TheWelcome,
   },
   {
-    path: '/helloWorld',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    path: '/weatherForcast',
+    name: 'WeatherForcast',
+    component: WeatherForcast,
   },
   {
     path: '/membersonly',

@@ -1,5 +1,5 @@
 <script setup>
-  import HelloWorld from './components/HelloWorld.vue'
+  import HelloWorld from './components/WeatherForecast.vue'
   import TheWelcome from './components/TheWelcome.vue'
   import User from './components/User.vue'
   import MembersOnly from './components/MembersOnly.vue'
