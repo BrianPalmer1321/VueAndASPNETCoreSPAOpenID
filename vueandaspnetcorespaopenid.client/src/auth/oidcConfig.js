@@ -11,8 +11,10 @@ import { useAuthStore } from '../stores/authstore';
 //};
 
 export const oidcConfig = {
-    authority: 'https://qa-sso.cambiumastqa.com/auth/realms/Maui/',
-    client_id: 'SP_AST_HANDSCORING_LOCALHOST_MAUI_OIDC_QA', //SP_LOCALHOST_HELPDESK_QA', //SP_AST_LOCALHOST_OIDC_MAUI_QA', //SP_AST_MAUI_HANDSCORINGCENTRAL_OIDC_UAT',SP_ANALYSISLOCALHOST_ANALYSIS_QA
+  authority: "https://demo.duendesoftware.com",
+  client_id: "interactive.public",
+  //  authority: 'https://qa-sso.cambiumastqa.com/auth/realms/Maui/',
+  //  client_id: 'SP_AST_HANDSCORING_LOCALHOST_MAUI_OIDC_QA', //SP_LOCALHOST_HELPDESK_QA', //SP_AST_LOCALHOST_OIDC_MAUI_QA', //SP_AST_MAUI_HANDSCORINGCENTRAL_OIDC_UAT',SP_ANALYSISLOCALHOST_ANALYSIS_QA
     redirect_uri: 'https://localhost:8070/oidccallback', // Replace with your application's redirect URI
     post_logout_redirect_uri: 'https://localhost:8070/postlogout', // Replace with your application's post-logout redirect URI
     response_type: 'code', // Use 'code' for authorization code flow

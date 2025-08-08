@@ -1,6 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import HelloWorld from './components/HelloWorld.vue'
+  import TheWelcome from './components/TheWelcome.vue'
+  import User from './components/User.vue'
+  import MembersOnly from './components/MembersOnly.vue'
+  import { useAuthStore } from './stores/authstore.js' 
+  const authStore = useAuthStore();
+
 </script>
 
 <template>
@@ -8,12 +13,15 @@ import TheWelcome from './components/TheWelcome.vue'
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
+      <User />
+     
       <HelloWorld msg="You did it!" />
     </div>
   </header>
 
   <main>
     <!--<TheWelcome />-->
+     <MembersOnly v-if="authStore.isAuthenticated" />
     <router-view />
   </main>
 </template>

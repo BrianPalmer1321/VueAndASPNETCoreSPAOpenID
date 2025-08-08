@@ -32,6 +32,12 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/user',
+    name: 'User',
+    component: () => import('@/components/User.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
     path: '/OidcCallback',
     name: 'OidcCallback',
     component: OidcCallback,

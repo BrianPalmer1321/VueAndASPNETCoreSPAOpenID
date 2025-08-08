@@ -8,61 +8,30 @@
     <div v-else>
       <p>Welcome, {{ authStore.user?.name }}!</p>
       <p>Email: {{ authStore.user?.email }}</p>
-      <p>Roles: {{ authStore.user?.roles.join(', ') }}</p>
+     <!-- <p>Roles: {{ authStore.user?.roles.join(', ') }}</p>-->
       <a href="/logout">Logout</a>
     </div>
   </div>
-
 </template>
 
-<script lang="ts">
-  // this component displays details about the authenticated user
+<!--<script lang="ts">
+  import { defineComponent } from 'vue';
   import useAuthStore from '../stores/authstore.js';
 
+  export default defineComponent({
+    setup() {
+      const authStore = useAuthStore();
+      return { authStore };
+    }
+  });
+</script>-->
 
-    import { defineComponent } from 'vue';
+<script setup>
+  import { useAuthStore } from '../stores/authstore.js'; // Adjust path as needed
 
-    export default defineComponent({
-        components: {
-        },
-        directives: {
-        },
-        filters: {
-        },
-        props: {
-        },
-        data() {
-            return {
-            }
-        },
-        computed: {
-        },
-        watch: {
-        },
-        beforeCreate() {
-        },
-        created() {
-        },
-        beforeMount() {
-        },
-      mounted() {
-        const authStore = useAuthStore();
-
-        },
-        updated() {
-        },
-        activated() {
-        },
-        deactivated() {
-        },
-        beforeDestroy() {
-        },
-        destroyed() {
-        },
-        methods: {
-        },
-    });
+  const authStore = useAuthStore();
 </script>
 
 <style>
+  /* Add your styles here if needed */
 </style>
