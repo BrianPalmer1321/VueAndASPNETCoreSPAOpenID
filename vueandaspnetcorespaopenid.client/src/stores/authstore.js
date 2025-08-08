@@ -13,7 +13,17 @@ export const useAuthStore = defineStore('auth', {
       try {
         console.log('In initialize');
         const user = await userManager.getUser();
-        this.user = user;
+        this.user = user
+          ? {
+            name: user.profile?.name || user.profile?.preferred_username || 'no avail.',
+            email: user.profile?.email || 'not avail.',
+            roles: user.profile?.role || [],
+            aud: user.profile?.aud,
+            iss: user.profile?.iss,
+            idp: user.profile?.idp,
+
+          }
+          : null;
         this.isAuthenticated = !!user && !user.expired;
       } catch (error) {
         this.user = null;
@@ -33,7 +43,17 @@ export const useAuthStore = defineStore('auth', {
       try {
         await handleCallback();
         const user = await getUser();
-        this.user = user;
+        console.log('OIDC user profile:', user.profile);
+        this.user = user
+          ? {
+            name: user.profile?.name || user.profile?.preferred_username || 'not avail.',
+            email: user.profile?.email || 'not avail.',
+            roles: user.profile?.role || [],
+            aud: user.profile?.aud,
+            iss: user.profile?.iss,
+            idp: user.profile?.idp,
+          }
+          : null;
         this.isAuthenticated = !!user && !user.expired;
       } catch (error) {
         console.error('Callback handling failed:', error);

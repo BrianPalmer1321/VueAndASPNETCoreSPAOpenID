@@ -6,9 +6,12 @@
       <a href="/login">Login</a>
     </div>
     <div v-else>
-      <p>Welcome, {{ authStore.user?.name }}!</p>
+      <p>Name: {{ authStore.user?.name }}</p>
       <p>Email: {{ authStore.user?.email }}</p>
-     <!-- <p>Roles: {{ authStore.user?.roles.join(', ') }}</p>-->
+      <p>iss: {{ authStore.user?.iss }}</p>
+      <p>aud: {{ authStore.user?.aud }}</p>
+      <p>idp: {{ authStore.user?.idp }}</p>
+      <!-- <p>Roles: {{ authStore.user?.roles.join(', ') }}</p>-->
       <a href="/logout">Logout</a>
     </div>
   </div>
@@ -30,6 +33,12 @@
   import { useAuthStore } from '../stores/authstore.js'; // Adjust path as needed
 
   const authStore = useAuthStore();
+  //const idToken = authStore.id_token;
+  //console.log('ID Token:', idToken);
+
+  //// Decode (for debugging only, not for production use)
+  //const payload = JSON.parse(atob(idToken.split('.')[1]));
+  //console.log('Decoded ID Token payload:', payload);
 </script>
 
 <style>
