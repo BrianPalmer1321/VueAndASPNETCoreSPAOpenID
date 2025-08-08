@@ -11,6 +11,7 @@ export const useAuthStore = defineStore('auth', {
   actions: {
     async initialize() {
       try {
+        console.log('In initialize');
         const user = await userManager.getUser();
         this.user = user;
         this.isAuthenticated = !!user && !user.expired;
