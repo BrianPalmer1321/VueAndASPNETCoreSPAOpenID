@@ -1,6 +1,5 @@
 <script setup>
-  import HelloWorld from './components/WeatherForecast.vue'
-  import TheWelcome from './components/TheWelcome.vue'
+  import WeatherForecast from './components/WeatherForecast.vue'
   import User from './components/User.vue'
   import MembersOnly from './components/MembersOnly.vue'
   import { useAuthStore } from './stores/authstore.js' 
@@ -14,8 +13,7 @@
 
     <div class="wrapper">
       <User />
-     
-      <HelloWorld msg="You did it!" />
+        <WeatherForecast msg="You did it!"  v-if="authStore.isAuthenticated" />
     </div>
   </header>
 

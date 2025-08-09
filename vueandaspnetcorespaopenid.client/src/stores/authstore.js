@@ -7,6 +7,7 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     user: null,
     isAuthenticated: false,
+    accessToken: null,
   }),
   actions: {
     async initialize() {
@@ -25,6 +26,7 @@ export const useAuthStore = defineStore('auth', {
           }
           : null;
         this.isAuthenticated = !!user && !user.expired;
+        this.accessToken = user?.access_token || null;
       } catch (error) {
         this.user = null;
         this.isAuthenticated = false;
@@ -55,6 +57,7 @@ export const useAuthStore = defineStore('auth', {
           }
           : null;
         this.isAuthenticated = !!user && !user.expired;
+        this.accessToken = user?.access_token || null;
       } catch (error) {
         console.error('Callback handling failed:', error);
         this.user = null;
@@ -85,6 +88,7 @@ export const useAuthStore = defineStore('auth', {
 
         this.user = user;
         this.isAuthenticated = !!user;
+        this.accessToken = user?.access_token || null;
       } catch (error) {
         console.error('Silent renew failed:', error);
       }

@@ -31,37 +31,69 @@
 </template>
 
 <script lang="js">
-    import { defineComponent } from 'vue';
+  import { defineComponent } from 'vue';
+  import { useAuthStore } from '../stores/authstore.js';
+  import { userManager } from '../auth/oidcConfig.js';
 
-    export default defineComponent({
-        data() {
-            return {
-                loading: false,
-                post: null
-            };
-        },
-        async created() {
-            // fetch the data when the view is created and the data is
-            // already being observed
-            await this.fetchData();
-        },
-        watch: {
-            // call again the method if the route changes
-            '$route': 'fetchData'
-        },
-        methods: {
-            async fetchData() {
-                this.post = null;
-                this.loading = true;
+  export default defineComponent({
+    data() {
+      return {
+        loading: false,
+        post: null
+      };
+    },
+    async created() {
+      // fetch the data when the view is created and the data if the user is authenticated
+      const authStore = useAuthStore();
+      if (authStore.isAuthenticated && authStore.user && userManager) {
+        // If using oidc-client-ts, get the raw user object for the token
+        const user = await userManager.getUser();
+        if (user) {
+          console.log('User is authenticated:', user);
+          await this.fetchData();
+        }
+      } else {
+        console.log('User is not authenticated');
+      }
 
-                var response = await fetch('weatherforecast');
-                if (response.ok) {
-                    this.post = await response.json();
-                    this.loading = false;
-                }
-            }
-        },
-    });
+    },
+    watch: {
+      // call the method again if the route changes
+      '$route': 'fetchData'
+    },
+    methods: {
+      async fetchData() {
+        this.post = null;
+        this.loading = true;
+
+        const authStore = useAuthStore();
+        // Ensure user is authenticated and has an access token
+        let accessToken = null;
+        if (authStore.isAuthenticated && authStore.user && userManager) {
+          // If using oidc-client-ts, get the raw user object for the token
+          const user = await userManager.getUser();
+          accessToken = user?.access_token;
+        }
+
+        // Fallback: try to get token from authStore.user if available
+        if (!accessToken && authStore.user && authStore.user.accessToken) {
+          accessToken = authStore.user.access_token;
+        }
+
+        // Prepare fetch options with Authorization header if token is available
+        const fetchOptions = accessToken
+          ? { headers: { 'Authorization': `Bearer ${accessToken}` } }
+          : {};
+
+
+        var response = await fetch('weatherforecast', fetchOptions);
+        if (response.ok) {
+          this.post = await response.json();
+          this.loading = false;
+        }
+      }
+    },
+  });
 </script>
 
 <style scoped>

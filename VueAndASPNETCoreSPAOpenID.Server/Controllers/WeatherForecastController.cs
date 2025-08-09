@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VueAndASPNETCoreSPAOpenID.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize] // <-- This secures all actions in this controller
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

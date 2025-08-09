@@ -30,7 +30,7 @@
 </script>-->
 
 <script setup>
-  import { useAuthStore } from '../stores/authstore.js'; // Adjust path as needed
+  import { useAuthStore } from '../stores/authstore.js'; 
 
   const authStore = useAuthStore();
   //const idToken = authStore.id_token;

@@ -14,9 +14,6 @@
       // 4.	Callback Handling. This processes the response and stores the user in the userManager
       await authStore.handleCallback()
       // Optionally redirect after successful callback
-      if (!authStore.isAuthenticated) {
-        router.replace({ path: '/login' })
-      }
 
       //if (authStore.isAuthenticated) {
       //  router.replace({ path: '/' })
