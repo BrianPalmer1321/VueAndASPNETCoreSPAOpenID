@@ -1,5 +1,5 @@
 import './assets/main.css'
-import { useAuthStore } from '@/stores/authstore';
+import { useAuthStore } from '@/stores/authStore';
 
 import { createApp } from 'vue'
 import App from './App.vue'

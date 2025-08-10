@@ -1,13 +1,11 @@
 <script setup>
   import { onMounted } from 'vue';
-  //import { userManager } from '@/auth/oidcService';
   import { useRouter } from 'vue-router';
-  import { useAuthStore } from '@/stores/authstore'
+  import { useAuthStore } from '@/stores/authStore'
 
   const router = useRouter();
   const authStore = useAuthStore()
 
-  console.log('in OidcCallback');
   onMounted(async () => {
     try {
       console.log('OidcCallback: onMounted');

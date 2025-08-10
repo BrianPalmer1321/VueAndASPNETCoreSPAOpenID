@@ -48,7 +48,7 @@ export const useAuthStore = defineStore('auth', {
         console.log('OIDC user profile:', user.profile);
         this.user = user
           ? {
-            name: user.profile?.name || user.profile?.preferred_username || 'not avail.',
+            name: user.profile?.name || user.profile?.preferred_username || user.profile?.given_name ||'not avail.', 
             email: user.profile?.email || 'not avail.',
             roles: user.profile?.role || [],
             aud: user.profile?.aud,

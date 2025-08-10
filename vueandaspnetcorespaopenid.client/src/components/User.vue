@@ -19,7 +19,7 @@
 
 <!--<script lang="ts">
   import { defineComponent } from 'vue';
-  import useAuthStore from '../stores/authstore.js';
+  import useAuthStore from '../stores/authStore.js';
 
   export default defineComponent({
     setup() {
@@ -30,7 +30,7 @@
 </script>-->
 
 <script setup>
-  import { useAuthStore } from '../stores/authstore.js'; 
+  import { useAuthStore } from '../stores/authStore.js'; 
 
   const authStore = useAuthStore();
   //const idToken = authStore.id_token;

@@ -2,9 +2,11 @@
   import WeatherForecast from './components/WeatherForecast.vue'
   import User from './components/User.vue'
   import MembersOnly from './components/MembersOnly.vue'
-  import { useAuthStore } from './stores/authstore.js' 
+  import { useAuthStore } from './stores/authStore.js'
+  import { oidcConfig } from './auth/oidcConfig.js'
   const authStore = useAuthStore();
-
+  //oidcConfig.authority
+  
 </script>
 
 <template>
@@ -13,13 +15,26 @@
 
     <div class="wrapper">
       <User />
-        <WeatherForecast msg="You did it!"  v-if="authStore.isAuthenticated" />
+      <WeatherForecast msg="You did it!" v-if="authStore.isAuthenticated" />
     </div>
+
   </header>
 
   <main>
     <!--<TheWelcome />-->
-     <MembersOnly v-if="authStore.isAuthenticated" />
+    <div class="wrapper">
+      <div>
+        <a :href="oidcConfig.authority" target="_blank" rel="noopener">
+          OpenID Provider:  {{ oidcConfig.authority }}
+        </a>
+      </div>
+      <div>
+        <a :href="oidcConfig.authority +'/.well-known/openid-configuration'" target="_blank" rel="noopener">
+          Well-known/openid-configuration: {{ oidcConfig.authority }}
+        </a>
+      </div>
+    </div>
+    <MembersOnly v-if="authStore.isAuthenticated" />
     <router-view />
   </main>
 </template>

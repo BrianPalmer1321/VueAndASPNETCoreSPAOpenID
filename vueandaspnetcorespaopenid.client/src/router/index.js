@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useAuthStore } from '@/stores/authstore';
+import { useAuthStore } from '@/stores/authStore';
 import '@/auth/oidcService'; // Import the userManager instance from oidcService
+import OidcCallback from '@/components/OidcCallback.vue';
+
 import TheWelcome from '@/components/TheWelcome.vue';
 import WeatherForcast from '@/components/WeatherForecast.vue'
-import OidcCallback from '@/components/OidcCallback.vue';
+
 
 const routes = [
   {
@@ -115,6 +117,8 @@ const router = createRouter({
 //  }
 //})
 
+
+// Global navigation guard to check authentication before each route
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
