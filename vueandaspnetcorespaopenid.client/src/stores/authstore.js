@@ -22,7 +22,7 @@ export const useAuthStore = defineStore('auth', {
             aud: user.profile?.aud,
             iss: user.profile?.iss,
             idp: user.profile?.idp,
-
+            accessToken: user.access_token
           }
           : null;
         this.isAuthenticated = !!user && !user.expired;
@@ -54,6 +54,7 @@ export const useAuthStore = defineStore('auth', {
             aud: user.profile?.aud,
             iss: user.profile?.iss,
             idp: user.profile?.idp,
+            accessToken: user.access_token
           }
           : null;
         this.isAuthenticated = !!user && !user.expired;

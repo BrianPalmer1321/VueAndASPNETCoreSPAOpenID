@@ -11,6 +11,7 @@
       <p>iss: {{ authStore.user?.iss }}</p>
       <p>aud: {{ authStore.user?.aud }}</p>
       <p>idp: {{ authStore.user?.idp }}</p>
+      <p>id_token: <input id="inputToken" type="text" :value="authStore.user?.accessToken" readonly /></p>
       <!-- <p>Roles: {{ authStore.user?.roles.join(', ') }}</p>-->
       <a href="/logout">Logout</a>
     </div>
